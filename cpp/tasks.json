@@ -1,0 +1,40 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Makefile",
+            "type": "shell",
+            "command": "make",
+            // Make this the default build command.
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always"
+            },
+            // Pass 'all' as the build target
+            "args": [
+                "all",
+                "--debug"
+            ]
+        },
+        {
+            "label": "buildTest",
+            "command": "make", // Could be any other shell command
+            "args": [
+                "-j16",
+                "-C",
+                "${workspaceFolder}/test/intltest"
+            ],
+            "type": "shell"            
+        },
+        {
+            "label": "runTestCases",
+            "command": "${workspaceFolder}/test/intltest/intltest", // Could be any other shell command
+            "args": [
+            ],
+            "type": "shell"
+        }
+    ]
+}

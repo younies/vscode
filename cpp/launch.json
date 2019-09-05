@@ -1,0 +1,45 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "(lldb) Launch",
+            "type": "cppdbg",
+            "request": "launch",
+            "targetArchitecture": "x64",
+            "program": "${workspaceFolder}/test/intltest/intltest",
+            "environment": [
+                {
+                    "name": "DYLD_LIBRARY_PATH",
+                    "value": "${workspaceRoot}/lib:${workspaceRoot}/stubdata:${workspaceRoot}/tools/ctestfw"
+                },
+                {
+                    "name": "ICU_DATA",
+                    "value": "${workspaceRoot}/data/out"
+                }
+            ],
+            "args": [
+              //  "format/MessageFormatRegressionTest/TestICU12585"
+             // "rbbi/RBBITest/TestMonkey"
+             "rbbi/RBBITest"
+             /*
+               "rbbi/RBBITest/TestMonkey@type=char",
+                "loop=-1",
+                "|&", 
+                "tee", 
+                "~/icu/LINE_OLD_MONKEY_TEST"
+                */
+            ],
+            "stopAtEntry": false, // it was true
+            "cwd": "${workspaceFolder}",
+            "externalConsole": false, //set to true to see output in cmd instead
+            "MIMode": "lldb",
+            "logging": {
+                "trace": true,
+                "traceResponse": true,
+                "engineLogging": true,
+                "programOutput": true
+            },
+            "preLaunchTask": "buildTest"
+        }
+    ]
+}
